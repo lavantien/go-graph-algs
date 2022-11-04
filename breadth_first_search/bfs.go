@@ -1,6 +1,9 @@
 package breadth_first_search
 
-import "fmt"
+import (
+	"fmt"
+	"go-graph-als/common"
+)
 
 func BreadthFirstSearch(graph [][][2]int, start int, end int) []int {
 	queue := []int{}
@@ -26,14 +29,8 @@ func BreadthFirstSearch(graph [][][2]int, start int, end int) []int {
 	if path[0] != end {
 		return []int{}
 	}
-	reverse(path)
+	common.Reverse(path)
 	return path
-}
-
-func reverse(list []int) {
-	for i, j := 0, len(list)-1; i < j; i, j = i+1, j-1 {
-		list[i], list[j] = list[j], list[i]
-	}
 }
 
 /*
@@ -60,12 +57,12 @@ To reconstruct K from any (x, y): K = x*N + y
 // Start and End here is a vector of position {0, 1}
 func MatrixShortestPath(matrix [][]int, start [2]int, end [2]int) (int, []int) {
 	n := len(matrix[0])
-	return matrixShortestPath(matrixToAdjacencyList(matrix), start[0]*n+start[1], end[0]*n+end[1])
+	return matrixShortestPath(common.MatrixToAdjacencyList(matrix), start[0]*n+start[1], end[0]*n+end[1])
 }
 
 // Start and End here is the vertexes' order number
 func matrixShortestPath(graph [][][2]int, start int, end int) (int, []int) {
-	printAdjacencyList(graph)
+	common.PrintAdjacencyList(graph)
 	queue := []int{}
 	visited := make([]bool, len(graph))
 	prev := make([]int, len(graph))
@@ -92,51 +89,6 @@ func matrixShortestPath(graph [][][2]int, start int, end int) (int, []int) {
 	if path[0] != end {
 		return 0, []int{}
 	}
-	reverse(path)
+	common.Reverse(path)
 	return distance, path
-}
-
-/*
-(x-1, y-1) | (x-1, y+0) | (x-1, y+1)
-(x+0, y-1) |   (x, y)   | (x+0, y+1)
-(x+1, y-1) | (x+1, y+0) | (x+1, y+1)
-For only 4 directions:
-kX: [-1, 0, 1, 0]
-kY: [0, 1, 0, -1]
-currX = x + kX
-currY = y + kY
-*/
-func matrixToAdjacencyList(matrix [][]int) [][][2]int {
-	ret := [][][2]int{}
-	m := len(matrix)
-	n := len(matrix[0])
-	dx := []int{-1, 0, 1, 0}
-	dy := []int{0, 1, 0, -1}
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			currentList := [][2]int{}
-			for k := 0; k < 4; k++ {
-				x := i + dx[k]
-				y := j + dy[k]
-				if x < 0 || x >= m || y < 0 || y >= n {
-					continue
-				}
-				if matrix[x][y] != 0 {
-					currentList = append(currentList, [2]int{x*n + y, 1})
-				}
-			}
-			ret = append(ret, currentList)
-		}
-	}
-	return ret
-}
-
-func printAdjacencyList(graph [][][2]int) {
-	for i, list := range graph {
-		fmt.Print(i, ": ")
-		for _, vertex := range list {
-			fmt.Print(vertex, " ")
-		}
-		fmt.Println()
-	}
 }
