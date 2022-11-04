@@ -51,7 +51,7 @@ Suppose we have this matrix of size 5x7 that include obstacles
 1 0 1 1 1 1 1
 1 1 0 0 1 1 1
 0 1 0 1 1 0 1
-With starting vertex (0, 0) and ending vertex (4, 3), the shortest path is [0, 1, 2, 9, 10, 17, 18, 25, 32, 31]
+With starting vertex (0, 0) and ending vertex (4, 3), the shortest path is [0, 1, 2, 9, 10, 11, 18, 25, 32, 31]
 Our adjacency list is composed of all K vertexes, each vertex contains a list of its adjacent vertexes, and each element of that list is
 an array consists of 2 elements: Kth and W, K is its vertex number and W is its weight, in this case W is either 1 or 0 (obstacle)
 
