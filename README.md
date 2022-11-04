@@ -26,7 +26,7 @@
 
 ```text
 Suppose we have a matrix of size MxN = 4x7
-col		00 01 02 03 04 05 06
+col     00 01 02 03 04 05 06
 row 00: 00 01 02 03 04 05 06
 row 01: 07 08 09 10 11 12 13
 row 02: 14 15 16 17 18 19 20
