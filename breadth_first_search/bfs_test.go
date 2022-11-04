@@ -48,3 +48,45 @@ func TestBreadthFirstSearch(t *testing.T) {
 		})
 	}
 }
+
+func TestMatrixShortestPath(t *testing.T) {
+	type args struct {
+		matrix [][]int
+		start  [2]int
+		end    [2]int
+	}
+	tests := []struct {
+		name  string
+		args  args
+		want  int
+		want1 []int
+	}{
+		{
+			name: "OK",
+			args: args{
+				matrix: [][]int{
+					{1, 1, 1, 0, 1, 1, 1},
+					{1, 0, 1, 1, 1, 0, 1},
+					{1, 0, 1, 1, 1, 1, 1},
+					{1, 1, 0, 0, 1, 1, 1},
+					{0, 1, 0, 1, 1, 0, 1},
+				},
+				start: [2]int{0, 0},
+				end:   [2]int{4, 3},
+			},
+			want:  10,
+			want1: []int{0, 1, 2, 9, 10, 11, 18, 25, 32, 31},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, got1 := MatrixShortestPath(tt.args.matrix, tt.args.start, tt.args.end)
+			if got != tt.want {
+				t.Errorf("MatrixShortestPath() got = %v, want %v", got, tt.want)
+			}
+			if !reflect.DeepEqual(got1, tt.want1) {
+				t.Errorf("MatrixShortestPath() got1 = %v, want %v", got1, tt.want1)
+			}
+		})
+	}
+}
