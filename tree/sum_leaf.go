@@ -9,7 +9,7 @@ func LeafSum(node *common.Node) int {
 		return 0
 	}
 	if len(node.ChildNodes) == 0 {
-		return node.Value
+		return node.ID
 	}
 	sum := 0
 	for _, child := range node.ChildNodes {

@@ -18,48 +18,48 @@ func TestLeafSum(t *testing.T) {
 			name: "OK",
 			args: args{
 				node: &common.Node{
-					Value: 5,
+					ID: 5,
 					ChildNodes: []*common.Node{
 						{
-							Value: 4,
+							ID: 4,
 							ChildNodes: []*common.Node{
 								{
-									Value: 1,
+									ID: 1,
 									ChildNodes: []*common.Node{
 										{
-											Value:      2,
+											ID:         2,
 											ChildNodes: []*common.Node{},
 										},
 										{
-											Value:      9,
+											ID:         9,
 											ChildNodes: []*common.Node{},
 										},
 									},
 								},
 								{
-									Value:      -6,
+									ID:         -6,
 									ChildNodes: []*common.Node{},
 								},
 							},
 						},
 						{
-							Value: 3,
+							ID: 3,
 							ChildNodes: []*common.Node{
 								{
-									Value:      0,
+									ID:         0,
 									ChildNodes: []*common.Node{},
 								},
 								{
-									Value: 7,
+									ID: 7,
 									ChildNodes: []*common.Node{
 										{
-											Value:      8,
+											ID:         8,
 											ChildNodes: []*common.Node{},
 										},
 									},
 								},
 								{
-									Value:      -4,
+									ID:         -4,
 									ChildNodes: []*common.Node{},
 								},
 							},
@@ -92,48 +92,48 @@ func TestTreeHeight(t *testing.T) {
 			name: "OK",
 			args: args{
 				node: &common.Node{
-					Value: 5,
+					ID: 5,
 					ChildNodes: []*common.Node{
 						{
-							Value: 4,
+							ID: 4,
 							ChildNodes: []*common.Node{
 								{
-									Value: 1,
+									ID: 1,
 									ChildNodes: []*common.Node{
 										{
-											Value:      2,
+											ID:         2,
 											ChildNodes: []*common.Node{},
 										},
 										{
-											Value:      9,
+											ID:         9,
 											ChildNodes: []*common.Node{},
 										},
 									},
 								},
 								{
-									Value:      -6,
+									ID:         -6,
 									ChildNodes: []*common.Node{},
 								},
 							},
 						},
 						{
-							Value: 3,
+							ID: 3,
 							ChildNodes: []*common.Node{
 								{
-									Value:      0,
+									ID:         0,
 									ChildNodes: []*common.Node{},
 								},
 								{
-									Value: 7,
+									ID: 7,
 									ChildNodes: []*common.Node{
 										{
-											Value:      8,
+											ID:         8,
 											ChildNodes: []*common.Node{},
 										},
 									},
 								},
 								{
-									Value:      -4,
+									ID:         -4,
 									ChildNodes: []*common.Node{},
 								},
 							},
