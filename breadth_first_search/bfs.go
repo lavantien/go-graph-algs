@@ -16,8 +16,8 @@ func BreadthFirstSearch(graph [][][2]int, start int, end int) []int {
 		for _, adjacentVertex := range graph[queue[0]] {
 			if !visited[adjacentVertex[0]] {
 				visited[adjacentVertex[0]] = true
-				prev[adjacentVertex[0]] = queue[0]
 				queue = append(queue, adjacentVertex[0])
+				prev[adjacentVertex[0]] = queue[0]
 			}
 		}
 		queue = queue[1:]
